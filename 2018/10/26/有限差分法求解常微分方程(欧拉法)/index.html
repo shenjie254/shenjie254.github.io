@@ -15,12 +15,12 @@
 <meta property="og:site_name" content="Devil Grape">
 <meta property="og:description" content="本程序使用matab2018a 运行通过 常微分方程为： x’(t)=-2x(t)+t123456789101112131415161718192021222324clear;% 将方程转换为: ax&amp;apos;=bx + cta=1.;b=-2.;c=1.;% 初始值tinit= 0.;tmax=5.;% 时间步长maxt = 3000;dt = (tmax-tinit)/maxt;% 初始条件">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://imageone.oss-cn-beijing.aliyuncs.com/a1.svg?Expires=1540535432&OSSAccessKeyId=TMP.AQFWqrfypibyocBpZjphpXs1uPkDIey04o2VJblxRi5QHgPgAlk81uc_30b5AAAwLAIUBsJx7qPCgjpKQRjQqD7SSyiWh04CFD3Qun5_zHvl1AlR91kCRNI2icwB&Signature=UNFUAw5d50I4jQWhHCoM5R77vqs%3D">
-<meta property="og:updated_time" content="2018-10-26T05:31:02.704Z">
+<meta property="og:image" content="https://imageone.oss-cn-beijing.aliyuncs.com/a1.svg">
+<meta property="og:updated_time" content="2018-10-26T05:36:08.896Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="有限差分法求解偏微分方程（欧拉法）">
 <meta name="twitter:description" content="本程序使用matab2018a 运行通过 常微分方程为： x’(t)=-2x(t)+t123456789101112131415161718192021222324clear;% 将方程转换为: ax&amp;apos;=bx + cta=1.;b=-2.;c=1.;% 初始值tinit= 0.;tmax=5.;% 时间步长maxt = 3000;dt = (tmax-tinit)/maxt;% 初始条件">
-<meta name="twitter:image" content="https://imageone.oss-cn-beijing.aliyuncs.com/a1.svg?Expires=1540535432&OSSAccessKeyId=TMP.AQFWqrfypibyocBpZjphpXs1uPkDIey04o2VJblxRi5QHgPgAlk81uc_30b5AAAwLAIUBsJx7qPCgjpKQRjQqD7SSyiWh04CFD3Qun5_zHvl1AlR91kCRNI2icwB&Signature=UNFUAw5d50I4jQWhHCoM5R77vqs%3D">
+<meta name="twitter:image" content="https://imageone.oss-cn-beijing.aliyuncs.com/a1.svg">
   
     <link rel="alternative" href="/atom.xml" title="Devil Grape" type="application/atom+xml">
   
@@ -193,7 +193,7 @@
 
         
         <a href="/2018/10/26/有限差分法求解常微分方程(欧拉法)/" class="archive-article-date">
-  	<time datetime="2018-10-26T05:31:02.704Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-26</time>
+  	<time datetime="2018-10-26T05:36:08.896Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-26</time>
 </a>
         
       </header>
@@ -202,7 +202,7 @@
       
         <p>本程序使用matab2018a 运行通过</p>
 <h2 id="常微分方程为：-x’-t-2x-t-t"><a href="#常微分方程为：-x’-t-2x-t-t" class="headerlink" title="常微分方程为： x’(t)=-2x(t)+t"></a>常微分方程为： x’(t)=-2x(t)+t</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">clear;</span><br><span class="line">% 将方程转换为: ax&apos;=bx + ct</span><br><span class="line">a=1.;</span><br><span class="line">b=-2.;</span><br><span class="line">c=1.;</span><br><span class="line">% 初始值</span><br><span class="line">tinit= 0.;</span><br><span class="line">tmax=5.;</span><br><span class="line">% 时间步长</span><br><span class="line">maxt = 3000;</span><br><span class="line">dt = (tmax-tinit)/maxt;</span><br><span class="line">% 初始条件</span><br><span class="line">x(1)=1.;</span><br><span class="line">t(1)=tinit;</span><br><span class="line">% 迭代求解</span><br><span class="line">for j=1:maxt;</span><br><span class="line">x(j+1)=x(j)+dt*((b*x(j)+c*(j)*dt)/a);</span><br><span class="line">t(j+1)=tinit+j*dt;</span><br><span class="line">end;</span><br><span class="line">%画图</span><br><span class="line">plot(t,x)</span><br><span class="line">title(&apos;Euler Method&apos;)</span><br><span class="line">xlabel(&apos;T&apos;)</span><br><span class="line">ylabel(&apos;X(t)&apos;)</span><br></pre></td></tr></table></figure>
-<p><img src="https://imageone.oss-cn-beijing.aliyuncs.com/a1.svg?Expires=1540535432&amp;OSSAccessKeyId=TMP.AQFWqrfypibyocBpZjphpXs1uPkDIey04o2VJblxRi5QHgPgAlk81uc_30b5AAAwLAIUBsJx7qPCgjpKQRjQqD7SSyiWh04CFD3Qun5_zHvl1AlR91kCRNI2icwB&amp;Signature=UNFUAw5d50I4jQWhHCoM5R77vqs%3D" alt="图片"></p>
+<p><img src="https://imageone.oss-cn-beijing.aliyuncs.com/a1.svg" alt="图片"></p>
 
       
 
@@ -307,9 +307,18 @@
   
 <nav id="article-nav">
   
+    <a href="/2018/10/26/有限差分法求解常微分方程（中心差分）/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          有限差分法求解偏微分方程(中心差分)
+        
+      </div>
+    </a>
   
-    <a href="/2018/10/26/有限差分法求解常微分方程（中心差分）/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">有限差分法求解偏微分方程(中心差分)</div>
+  
+    <a href="/2018/10/24/新的开始/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">新的开始</div>
       <i class="icon-circle-right"></i>
     </a>
   
