@@ -6,18 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Category: CFD | Devil Grape</title>
+  <title>常微分方程的数值解法（龙格库塔法） | Devil Grape</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="CFD学习">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Devil Grape">
-<meta property="og:url" content="http://yoursite.com/categories/CFD/index.html">
+  <meta name="description" content="常微分方程为：$$ x{\prime}(t)=x $$$$ x{\prime}(t)=x $$的解析解容易求得为$$ e^(t)=t+c $$ 当t=0时，$ e^(0)=1 $,当t=10时，$ e^(10)=22026.465794806718 $ 经典四阶龙格库塔公式如下$$f(x)=\begin{cases}y_(n+1)=y_n+\frac{h(k_1+2k_2+2k_3+k_4}{6}">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="常微分方程的数值解法（龙格库塔法）">
+<meta property="og:url" content="http://yoursite.com/2018/11/01/龙格库塔法/index.html">
 <meta property="og:site_name" content="Devil Grape">
-<meta property="og:description" content="CFD学习">
+<meta property="og:description" content="常微分方程为：$$ x{\prime}(t)=x $$$$ x{\prime}(t)=x $$的解析解容易求得为$$ e^(t)=t+c $$ 当t=0时，$ e^(0)=1 $,当t=10时，$ e^(10)=22026.465794806718 $ 经典四阶龙格库塔公式如下$$f(x)=\begin{cases}y_(n+1)=y_n+\frac{h(k_1+2k_2+2k_3+k_4}{6}">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://imageone.oss-cn-beijing.aliyuncs.com/rk4.svg">
+<meta property="og:updated_time" content="2018-11-01T05:10:37.209Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Devil Grape">
-<meta name="twitter:description" content="CFD学习">
+<meta name="twitter:title" content="常微分方程的数值解法（龙格库塔法）">
+<meta name="twitter:description" content="常微分方程为：$$ x{\prime}(t)=x $$$$ x{\prime}(t)=x $$的解析解容易求得为$$ e^(t)=t+c $$ 当t=0时，$ e^(0)=1 $,当t=10时，$ e^(10)=22026.465794806718 $ 经典四阶龙格库塔公式如下$$f(x)=\begin{cases}y_(n+1)=y_n+\frac{h(k_1+2k_2+2k_3+k_4}{6}">
+<meta name="twitter:image" content="https://imageone.oss-cn-beijing.aliyuncs.com/rk4.svg">
   
     <link rel="alternative" href="/atom.xml" title="Devil Grape" type="application/atom+xml">
   
@@ -177,36 +181,59 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-龙格库塔法" class="article article-type-post " itemscope="" itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/10/30/一维线性对流方程/" class="archive-article-date">
-  	<time datetime="2018-10-30T06:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-30</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/10/30/一维线性对流方程/">一维线性对流方程</a>
+    <h1 class="article-title" itemprop="name">
+      常微分方程的数值解法（龙格库塔法）
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/11/01/龙格库塔法/" class="archive-article-date">
+  	<time datetime="2018-11-01T05:05:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="常微分方程为：-x-prime-t-x"><a href="#常微分方程为：-x-prime-t-x" class="headerlink" title="常微分方程为：$$ x{\prime}(t)=x $$"></a>常微分方程为：$$ x{\prime}(t)=x $$</h2><p>$$ x{\prime}(t)=x $$的解析解容易求得为$$ e^(t)=t+c $$ 当t=0时，$ e^(0)=1 $,当t=10时，$ e^(10)=22026.465794806718 $</p>
+<h3 id="经典四阶龙格库塔公式如下"><a href="#经典四阶龙格库塔公式如下" class="headerlink" title="经典四阶龙格库塔公式如下"></a>经典四阶龙格库塔公式如下</h3><p>$$f(x)=<br>\begin{cases}<br>y_(n+1)=y_n+\frac{h(k_1+2k_2+2k_3+k_4}{6}\<br>k_1=f(x_n,y_n)\<br>k_2=f(x_n+\frac{h}{2},y_n+\frac{hk_1}{2})\<br>k_3=f(x_n+\frac{h}{2},y_n+\frac{hk_1=2}{2})\<br>k_4=f(x_(n+1),y_n+hk_3)<br>\end{cases}$$<br>本次计算，时间为0-10s，时间步长为0.001，以下为计算代码</p>
+<h2 id="代码如下"><a href="#代码如下" class="headerlink" title="代码如下"></a>代码如下</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">&quot;&quot;&quot;</span><br><span class="line">Created on Thu Nov  1 11:25:00 2018</span><br><span class="line"></span><br><span class="line">@author: Devil Grape</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">import math</span><br><span class="line">import numpy as np</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line"></span><br><span class="line">xintial=0   #x初始值 例如y&apos;(t)=y,则xintial的初始值为t的初始值</span><br><span class="line">yintial=1  #y的初始值，例如y&apos;(t)=y,则y(x=xintial)的值</span><br><span class="line">xfinal=10  #x的终点</span><br><span class="line"></span><br><span class="line">h=0.001   #步长</span><br><span class="line">N=(xfinal-xintial)/h #步数</span><br><span class="line">X,Y=[xintial],[yintial] #初始化</span><br><span class="line"></span><br><span class="line">def f(x,y):</span><br><span class="line">    return y</span><br><span class="line"></span><br><span class="line">y_n=Y[0]</span><br><span class="line">for i in range(int(N)):</span><br><span class="line">    x_n=i*h</span><br><span class="line"></span><br><span class="line">    k_1=f(x_n,y_n)</span><br><span class="line">    k_2=f(x_n+0.5*h,y_n+0.5*h*k_1)</span><br><span class="line">    k_3=f(x_n+0.5*h,y_n+0.5*h*k_2)</span><br><span class="line">    k_4=f(x_n+h,y_n+h*k_3)</span><br><span class="line">    y_n+=1/6*h*(k_1+2*k_2+2*k_3+k_4)</span><br><span class="line">    X.append(x_n+h)</span><br><span class="line">    Y.append(y_n)</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">exact=[math.exp(t) for t in range(11)]</span><br><span class="line">#error = np.array(exact) - np.array(Y)</span><br><span class="line">#print(&quot;max error &#123;:.5f&#125;&quot;.format(max(error)))</span><br><span class="line">plt.plot(X,Y,&apos;r:&apos;,lw=2)</span><br><span class="line">a=np.linspace(0.,11.,11, endpoint=False)</span><br><span class="line">plt.scatter(a,exact,lw=2)</span><br></pre></td></tr></table></figure>
+<p>求解方程后得到，$ e^(10)=22026.465794804935 $与解析解22026.465794806718非常相近<br>如下为解析解和龙格库塔法求解结果的对比<br><img src="https://imageone.oss-cn-beijing.aliyuncs.com/rk4.svg" alt="图片"></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -218,30 +245,117 @@
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/CFD//" class="article-tag-list-link color4">CFD</a>
+        			<a href="/categories/数值计算//" class="article-tag-list-link color5">数值计算</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/11/01/龙格库塔法/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2018/10/30/一维线性对流方程/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">一维线性对流方程</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -264,10 +378,10 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
-		isCategory: true,
+		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
 		root: "/",
