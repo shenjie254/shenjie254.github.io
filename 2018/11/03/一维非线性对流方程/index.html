@@ -8,19 +8,19 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>一维非线性对流方程 | Devil Grape</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一维线性对流方程是cfd中最简单、最基础的控制方程，上篇文章讲到了一维线性对流方程，本次文章讲解一维非线性对流方程$$\frac{\partial u}{\partial z}+u\frac{\partial u}{\partial x}=0$$从式中可以看到，原线性对流方程中的固定波速变成了u，成为了非定常值，下面来介绍其离散方法 数值离散对时间项向前差分，空间项使用向后差分$$\frac{u^">
+  <meta name="description" content="一维线性对流方程是cfd中最简单、最基础的控制方程，上篇文章讲到了一维线性对流方程，本次文章讲解一维非线性对流方程$$\frac{\partial u}{\partial z}+u\frac{\partial u}{\partial x}=0$$从式中可以看到，原线性对流方程中的固定波速变成了u，成为了非定常值，下面来介绍其离散方法">
 <meta name="keywords" content="Python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="一维非线性对流方程">
 <meta property="og:url" content="http://yoursite.com/2018/11/03/一维非线性对流方程/index.html">
 <meta property="og:site_name" content="Devil Grape">
-<meta property="og:description" content="一维线性对流方程是cfd中最简单、最基础的控制方程，上篇文章讲到了一维线性对流方程，本次文章讲解一维非线性对流方程$$\frac{\partial u}{\partial z}+u\frac{\partial u}{\partial x}=0$$从式中可以看到，原线性对流方程中的固定波速变成了u，成为了非定常值，下面来介绍其离散方法 数值离散对时间项向前差分，空间项使用向后差分$$\frac{u^">
+<meta property="og:description" content="一维线性对流方程是cfd中最简单、最基础的控制方程，上篇文章讲到了一维线性对流方程，本次文章讲解一维非线性对流方程$$\frac{\partial u}{\partial z}+u\frac{\partial u}{\partial x}=0$$从式中可以看到，原线性对流方程中的固定波速变成了u，成为了非定常值，下面来介绍其离散方法">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://imageone.oss-cn-beijing.aliyuncs.com/%E4%B8%80%E7%BB%B4%E9%9D%9E%E7%BA%BF%E6%80%A7%E5%AF%B9%E6%B5%81%E6%96%B9%E7%A8%8B.svg">
-<meta property="og:updated_time" content="2018-11-03T07:41:20.834Z">
+<meta property="og:updated_time" content="2018-11-03T07:50:10.009Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一维非线性对流方程">
-<meta name="twitter:description" content="一维线性对流方程是cfd中最简单、最基础的控制方程，上篇文章讲到了一维线性对流方程，本次文章讲解一维非线性对流方程$$\frac{\partial u}{\partial z}+u\frac{\partial u}{\partial x}=0$$从式中可以看到，原线性对流方程中的固定波速变成了u，成为了非定常值，下面来介绍其离散方法 数值离散对时间项向前差分，空间项使用向后差分$$\frac{u^">
+<meta name="twitter:description" content="一维线性对流方程是cfd中最简单、最基础的控制方程，上篇文章讲到了一维线性对流方程，本次文章讲解一维非线性对流方程$$\frac{\partial u}{\partial z}+u\frac{\partial u}{\partial x}=0$$从式中可以看到，原线性对流方程中的固定波速变成了u，成为了非定常值，下面来介绍其离散方法">
 <meta name="twitter:image" content="https://imageone.oss-cn-beijing.aliyuncs.com/%E4%B8%80%E7%BB%B4%E9%9D%9E%E7%BA%BF%E6%80%A7%E5%AF%B9%E6%B5%81%E6%96%B9%E7%A8%8B.svg">
   
     <link rel="alternative" href="/atom.xml" title="Devil Grape" type="application/atom+xml">
@@ -201,8 +201,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>一维线性对流方程是cfd中最简单、最基础的控制方程，上篇文章讲到了一维线性对流方程，本次文章讲解一维非线性对流方程<br>$$\frac{\partial u}{\partial z}+u\frac{\partial u}{\partial x}=0$$<br>从式中可以看到，原线性对流方程中的固定波速变成了u，成为了非定常值，下面来介绍其离散方法</p>
-<h2 id="数值离散"><a href="#数值离散" class="headerlink" title="数值离散"></a>数值离散</h2><p>对时间项向前差分，空间项使用向后差分<br>$$\frac{u^{n+1}_i-u^{n}_i}{\Delta t}+u^{n}\frac{u^{n}<em>i-u^{n}</em>{i-1}}{\Delta x}=0<br>整理可得<br>u^{n+1}_i=u^{n}_i-u^{n}_i\frac{\Delta t}{\Delta x}(u^{n}<em>i-u^{n}</em>{i-1)  </p>
+        <p>一维线性对流方程是cfd中最简单、最基础的控制方程，上篇文章讲到了一维线性对流方程，本次文章讲解一维非线性对流方程<br>$$\frac{\partial u}{\partial z}+u\frac{\partial u}{\partial x}=0$$<br>从式中可以看到，原线性对流方程中的固定波速变成了u，成为了非定常值，下面来介绍其离散方法<br><a id="more"></a></p>
+<h2 id="数值离散"><a href="#数值离散" class="headerlink" title="数值离散"></a>数值离散</h2><p>对时间项向前差分，空间项使用向后差分<br>$$\frac{u^{n+1}_i-u^{n}_i}{\Delta t}+u^{n}\frac{u^{n}<em>i-u^{n}</em>{i-1}}{\Delta x}=0 $$<br>整理可得<br>$$u^{n+1}_i=u^{n}_i-u^{n}_i\frac{\Delta t}{\Delta x}(u^{n}<em>i-u^{n}</em>{i-1)$$</p>
 <h3 id="初始条件"><a href="#初始条件" class="headerlink" title="初始条件"></a>初始条件</h3><p>定义域为（0,2），在[0.5,1]范围内，U=2,其他区间内，U均为1  </p>
 <h2 id="编程求解"><a href="#编程求解" class="headerlink" title="编程求解"></a>编程求解</h2><p>“””<br>import numpy as np<br>import matplotlib.pyplot as plt</p>
 <p>nx=41 #空间节点<br>dx=2/(nx-1) #空间步长<br>nt=20 #时间节点<br>dt=0.025 #时间步长</p>
