@@ -8,19 +8,19 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>一维非线性对流方程 | Devil Grape</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一维线性对流方程是cfd中最简单、最基础的控制方程，上篇文章讲到了一维线性对流方程，本次文章讲解一维非线性对流方程$$\frac{\partial u}{\partial z}+u\frac{\partial u}{\partial x}=0$$从式中可以看到，原线性对流方程中的固定波速变成了u，成为了非定常值，下面来介绍其离散方法">
+  <meta name="description" content="一维线性对流方程是cfd中最简单、最基础的控制方程，上篇文章讲到了一维线性对流方程，本次文章讲解一维非线性对流方程$$\frac{\partial u}{\partial t}+u\frac{\partial u}{\partial x}=0$$从式中可以看到，原线性对流方程中的固定波速变成了u，成为了非定常值，下面来介绍其离散方法">
 <meta name="keywords" content="Python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="一维非线性对流方程">
 <meta property="og:url" content="http://yoursite.com/2018/11/03/一维非线性对流方程/index.html">
 <meta property="og:site_name" content="Devil Grape">
-<meta property="og:description" content="一维线性对流方程是cfd中最简单、最基础的控制方程，上篇文章讲到了一维线性对流方程，本次文章讲解一维非线性对流方程$$\frac{\partial u}{\partial z}+u\frac{\partial u}{\partial x}=0$$从式中可以看到，原线性对流方程中的固定波速变成了u，成为了非定常值，下面来介绍其离散方法">
+<meta property="og:description" content="一维线性对流方程是cfd中最简单、最基础的控制方程，上篇文章讲到了一维线性对流方程，本次文章讲解一维非线性对流方程$$\frac{\partial u}{\partial t}+u\frac{\partial u}{\partial x}=0$$从式中可以看到，原线性对流方程中的固定波速变成了u，成为了非定常值，下面来介绍其离散方法">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://imageone.oss-cn-beijing.aliyuncs.com/%E4%B8%80%E7%BB%B4%E9%9D%9E%E7%BA%BF%E6%80%A7%E5%AF%B9%E6%B5%81%E6%96%B9%E7%A8%8B.svg">
-<meta property="og:updated_time" content="2018-11-03T08:08:03.036Z">
+<meta property="og:updated_time" content="2018-11-03T08:28:58.226Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一维非线性对流方程">
-<meta name="twitter:description" content="一维线性对流方程是cfd中最简单、最基础的控制方程，上篇文章讲到了一维线性对流方程，本次文章讲解一维非线性对流方程$$\frac{\partial u}{\partial z}+u\frac{\partial u}{\partial x}=0$$从式中可以看到，原线性对流方程中的固定波速变成了u，成为了非定常值，下面来介绍其离散方法">
+<meta name="twitter:description" content="一维线性对流方程是cfd中最简单、最基础的控制方程，上篇文章讲到了一维线性对流方程，本次文章讲解一维非线性对流方程$$\frac{\partial u}{\partial t}+u\frac{\partial u}{\partial x}=0$$从式中可以看到，原线性对流方程中的固定波速变成了u，成为了非定常值，下面来介绍其离散方法">
 <meta name="twitter:image" content="https://imageone.oss-cn-beijing.aliyuncs.com/%E4%B8%80%E7%BB%B4%E9%9D%9E%E7%BA%BF%E6%80%A7%E5%AF%B9%E6%B5%81%E6%96%B9%E7%A8%8B.svg">
   
     <link rel="alternative" href="/atom.xml" title="Devil Grape" type="application/atom+xml">
@@ -201,7 +201,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>一维线性对流方程是cfd中最简单、最基础的控制方程，上篇文章讲到了一维线性对流方程，本次文章讲解一维非线性对流方程<br>$$\frac{\partial u}{\partial z}+u\frac{\partial u}{\partial x}=0$$<br>从式中可以看到，原线性对流方程中的固定波速变成了u，成为了非定常值，下面来介绍其离散方法<br><a id="more"></a></p>
+        <p>一维线性对流方程是cfd中最简单、最基础的控制方程，上篇文章讲到了一维线性对流方程，本次文章讲解一维非线性对流方程<br>$$\frac{\partial u}{\partial t}+u\frac{\partial u}{\partial x}=0$$<br>从式中可以看到，原线性对流方程中的固定波速变成了u，成为了非定常值，下面来介绍其离散方法<br><a id="more"></a></p>
 <h2 id="数值离散"><a href="#数值离散" class="headerlink" title="数值离散"></a>数值离散</h2><p>对时间项向前差分，空间项使用向后差分<br>$$\frac{u^{n+1}_i-u^n_i}{\Delta t}+u^n\frac{u^n_i-u^n_{i-1}}{\Delta x}=0$$<br>整理可得<br>$$u^{n+1}_i=u^n_i-u^n_i\frac{\Delta t}{\Delta x}(u^n_i-u^n_{i-1}$$  </p>
 <h3 id="初始条件"><a href="#初始条件" class="headerlink" title="初始条件"></a>初始条件</h3><p>定义域为（0,2），在[0.5,1]范围内，U=2,其他区间内，U均为1  </p>
 <h2 id="编程求解"><a href="#编程求解" class="headerlink" title="编程求解"></a>编程求解</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line"></span><br><span class="line">nx=41 #空间节点</span><br><span class="line">dx=2/(nx-1) #空间步长</span><br><span class="line">nt=20 #时间节点</span><br><span class="line">dt=0.025 #时间步长</span><br><span class="line"></span><br><span class="line">u=np.ones(nx)</span><br><span class="line">u[int(0.5/dx):int(1/dx+1)]=2</span><br><span class="line">un=np.ones(nx)</span><br><span class="line"></span><br><span class="line">for n in range(nt):</span><br><span class="line">    un=u.copy()</span><br><span class="line">    for i in range(1,nx):</span><br><span class="line">        u[i]=un[i]-un[i]*(un[i]-un[i-1])*dt/dx</span><br><span class="line">plt.legend(fontsize=12)</span><br><span class="line">plt.xlabel(&apos;时间&apos;,fontsize=12)</span><br><span class="line">plt.ylabel(&apos;波高&apos;,fontsize=12)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
@@ -470,11 +470,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
