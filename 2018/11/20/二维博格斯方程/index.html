@@ -6,18 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2018/11 | Devil Grape</title>
+  <title>二维博格斯方程 | Devil Grape</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="CFD学习">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Devil Grape">
-<meta property="og:url" content="http://yoursite.com/archives/2018/11/index.html">
+  <meta name="description" content="博格斯方程的特点在初始条件为光滑时，仍会产生不连续的解，即会产生震荡如下为其PDE方程$$\frac{\partial u}{\partial t}+u\frac{\partial u}{\partial x}+v\frac{\partial u}{\partial y}=\nu \left( \frac{\partial ^2u}{\partial x^2}+\frac{\partial ^2u">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="二维博格斯方程">
+<meta property="og:url" content="http://yoursite.com/2018/11/20/二维博格斯方程/index.html">
 <meta property="og:site_name" content="Devil Grape">
-<meta property="og:description" content="CFD学习">
+<meta property="og:description" content="博格斯方程的特点在初始条件为光滑时，仍会产生不连续的解，即会产生震荡如下为其PDE方程$$\frac{\partial u}{\partial t}+u\frac{\partial u}{\partial x}+v\frac{\partial u}{\partial y}=\nu \left( \frac{\partial ^2u}{\partial x^2}+\frac{\partial ^2u">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://cfd.red/?/%E5%8D%9A%E5%AE%A2%E5%9B%BE%E7%89%87/%E5%88%9D%E5%A7%8B%E6%9D%A1%E4%BB%B6.svg">
+<meta property="og:image" content="http://cfd.red/?/%E5%8D%9A%E5%AE%A2%E5%9B%BE%E7%89%87/%E6%9C%80%E7%BB%88%E5%9B%BE%E5%BD%A2.svg">
+<meta property="og:updated_time" content="2018-11-20T05:03:00.864Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Devil Grape">
-<meta name="twitter:description" content="CFD学习">
+<meta name="twitter:title" content="二维博格斯方程">
+<meta name="twitter:description" content="博格斯方程的特点在初始条件为光滑时，仍会产生不连续的解，即会产生震荡如下为其PDE方程$$\frac{\partial u}{\partial t}+u\frac{\partial u}{\partial x}+v\frac{\partial u}{\partial y}=\nu \left( \frac{\partial ^2u}{\partial x^2}+\frac{\partial ^2u">
+<meta name="twitter:image" content="http://cfd.red/?/%E5%8D%9A%E5%AE%A2%E5%9B%BE%E7%89%87/%E5%88%9D%E5%A7%8B%E6%9D%A1%E4%BB%B6.svg">
   
     <link rel="alternative" href="/atom.xml" title="Devil Grape" type="application/atom+xml">
   
@@ -177,36 +182,64 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-二维博格斯方程" class="article article-type-post " itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      二维博格斯方程
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/11/20/二维博格斯方程/" class="archive-article-date">
+
+        
+        <a href="/2018/11/20/二维博格斯方程/" class="archive-article-date">
   	<time datetime="2018-11-20T04:50:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-20</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/20/二维博格斯方程/">二维博格斯方程</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="博格斯方程的特点"><a href="#博格斯方程的特点" class="headerlink" title="博格斯方程的特点"></a>博格斯方程的特点</h3><p>在初始条件为光滑时，仍会产生不连续的解，即会产生震荡<br>如下为其PDE方程<br>$$\frac{\partial u}{\partial t}+u\frac{\partial u}{\partial x}+v\frac{\partial u}{\partial y}=\nu \left( \frac{\partial ^2u}{\partial x^2}+\frac{\partial ^2u}{\partial y^2} \right) $$<br>$$\frac{\partial v}{\partial t}+u\frac{\partial v}{\partial x}+v\frac{\partial v}{\partial y}=\nu \left( \frac{\partial ^2v}{\partial x^2}+\frac{\partial ^2v}{\partial y^2} \right) $$</p>
+<h3 id="其离散方程如下"><a href="#其离散方程如下" class="headerlink" title="其离散方程如下"></a>其离散方程如下</h3><p>$$\frac{u_{i,j}^{n+1}-u_{i,j}^{n}}{\varDelta t}+u_{i,j}^{n}\frac{u_{i,j}^{n}-u_{i-\text{1,}j}^{n}}{\varDelta x}+v_{i,j}^{n}\frac{v_{i,j}^{n}-v_{i,j-1}^{n}}{\varDelta y}=\nu \left( \frac{u_{i+\text{1,}j}^{n}-2u_{i,j}^{n}+u_{i-\text{1,}j}^{n}}{\varDelta x^2}+\frac{u_{i,j+1}^{n}-2u_{i,j}^{n}+u_{i,j-1}^{n}}{\varDelta y^2} \right) $$<br>$$\frac{v_{i,j}^{n+1}-v_{i,j}^{n}}{\varDelta t}+u_{i,j}^{n}\frac{v_{i,j}^{n}-v_{i-\text{1,}j}^{n}}{\varDelta x}+v_{i,j}^{n}\frac{v_{i,j}^{n}-v_{i,j-1}^{n}}{\varDelta y}=\nu \left( \frac{v_{i+\text{1,}j}^{n}-2v_{i,j}^{n}+v_{i-\text{1,}j}^{n}}{\varDelta x^2}+\frac{v_{i,j+1}^{n}-2v_{i,j}^{n}+v_{i,j-1}^{n}}{\varDelta y^2} \right) $$</p>
+<h3 id="将离散方程整理可得"><a href="#将离散方程整理可得" class="headerlink" title="将离散方程整理可得"></a>将离散方程整理可得</h3><p>$$u_{i,j}^{n+1}=u_{i,j}^{n}-\frac{\varDelta t}{\varDelta x}u_{i,j}^{n}\left( u_{i,j}^{n}-u_{i-\text{1,}j}^{n} \right) -\frac{\varDelta t}{\varDelta y}v_{i,j}^{n}\left( u_{i,j}^{n}-u_{i,j-1}^{n} \right) +\nu \frac{\varDelta t}{\varDelta x^2}\left( u_{i+\text{1,}j}^{n}+2u_{i,j}^{n}+u_{i-\text{1,}j}^{n} \right) +\nu \frac{\varDelta t}{\varDelta y^2}\left( u_{i,j+1}^{n}+2u_{i,j}^{n}+u_{i,j-1}^{n} \right) $$<br>$$v_{i,j}^{n+1}=v_{i,j}^{n}-\frac{\varDelta t}{\varDelta x}u_{i,j}^{n}\left( v_{i,j}^{n}-v_{i-\text{1,}j}^{n} \right) -\frac{\varDelta t}{\varDelta y}v_{i,j}^{n}\left( v_{i,j}^{n}-v_{i,j-1}^{n} \right) +\nu \frac{\varDelta t}{\varDelta x^2}\left( v_{i+\text{1,}j}^{n}+2v_{i,j}^{n}+v_{i-\text{1,}j}^{n} \right) +\nu \frac{\varDelta t}{\varDelta y^2}\left( v_{i,j+1}^{n}+2v_{i,j}^{n}+v_{i,j-1}^{n} \right) $$</p>
+<h2 id="编程求解"><a href="#编程求解" class="headerlink" title="编程求解"></a>编程求解</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">import matplotlib.cm as cm</span><br><span class="line">from mpl_toolkits.mplot3d import Axes3D</span><br><span class="line">import time</span><br><span class="line">nx=41</span><br><span class="line">ny=41</span><br><span class="line">nt=120</span><br><span class="line">c=1</span><br><span class="line">dx=2/(nx-1)</span><br><span class="line">dy=2/(ny-1)</span><br><span class="line">sigma=.0009</span><br><span class="line">nu=0.01</span><br><span class="line">dt=sigma*dx*dy/nu</span><br><span class="line"></span><br><span class="line">x=np.linspace(0,2,nx)</span><br><span class="line">y=np.linspace(0,2,ny)</span><br><span class="line"></span><br><span class="line">u=np.ones((ny,nx))</span><br><span class="line">v=np.ones((ny,nx))</span><br><span class="line">un=np.ones((ny,nx))</span><br><span class="line">vn=np.ones((ny,nx))</span><br><span class="line">comb=np.ones((ny,nx))</span><br><span class="line"></span><br><span class="line">#初始化边界条件u(.5&lt;=x&lt;=1&amp;&amp;.5&lt;=y&lt;=1)</span><br><span class="line">u[int(.5/dy):int(1/dy+1),int(.5/dx):int(1/dx+1)]=2</span><br><span class="line">v[int(.5/dy):int(1/dy+1),int(.5/dx):int(1/dx+1)]=2</span><br></pre></td></tr></table></figure>
+<h3 id="画出初始条件图形"><a href="#画出初始条件图形" class="headerlink" title="画出初始条件图形"></a>画出初始条件图形</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">fig=plt.figure(figsize=(11,7),dpi=100)</span><br><span class="line">ax=fig.gca(projection=&apos;3d&apos;)</span><br><span class="line">X,Y=np.meshgrid(x,y)</span><br><span class="line">ax.plot_surface(X,Y,u[:],cmap=cm.viridis,rstride=1,cstride=1)</span><br><span class="line">ax.plot_surface(X,Y,v[:],cmap=cm.viridis,rstride=1,cstride=1)</span><br><span class="line">ax.set_xlabel=(&apos;$x$&apos;)</span><br><span class="line">ax.set_ylabel=(&apos;$y$&apos;)</span><br></pre></td></tr></table></figure>
+<p><img src="http://cfd.red/?/%E5%8D%9A%E5%AE%A2%E5%9B%BE%E7%89%87/%E5%88%9D%E5%A7%8B%E6%9D%A1%E4%BB%B6.svg" alt="初始条件"></p>
+<h3 id="迭代求解"><a href="#迭代求解" class="headerlink" title="迭代求解"></a>迭代求解</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">for n in range(nt+1):</span><br><span class="line">    un=u.copy()</span><br><span class="line">    vn=v.copy()</span><br><span class="line">    </span><br><span class="line">    u[1:-1,1:-1]=(un[1:-1,1:-1]-dt/dx*un[1:-1,1:-1]*(un[1:-1,1:-1]-un[1:-1,0:-2])-dt/dy*vn[1:-1,1:-1]*(un[1:-1,1:-1]-un[0:-2,1:-1])+nu*dt/dx**2*(un[1:-1,2:]-2*un[1:-1,1:-1]+un[1:-1,0:-2])+nu*dt/dy**2*(un[2:,1:-1]-2*un[1:-1,1:-1]+un[0:-2,1:-1]))</span><br><span class="line">    v[1:-1,1:-1]=(vn[1:-1,1:-1]-dt/dx*un[1:-1,1:-1]*(un[1:-1,1:-1]-un[1:-1,0:-2])-dt/dy*vn[1:-1,1:-1]*(un[1:-1,1:-1]-un[0:-2,1:-1])+nu*dt/dx**2*(vn[1:-1,2:]-2*vn[1:-1,1:-1]+vn[1:-1,0:-2])+nu*dt/dy**2*(vn[2:,1:-1]-2*vn[1:-1,1:-1]+vn[0:-2,1:-1]))</span><br><span class="line">    u[0,:]=1</span><br><span class="line">    u[-1,:]=1</span><br><span class="line">    u[:,0]=1</span><br><span class="line">    u[:,-1]=1</span><br><span class="line">    </span><br><span class="line">    v[0,:]=1</span><br><span class="line">    v[-1,:]=1</span><br><span class="line">    v[:,0]=1</span><br><span class="line">    v[:,-1]=1</span><br></pre></td></tr></table></figure>
+<h3 id="画出最终图形"><a href="#画出最终图形" class="headerlink" title="画出最终图形"></a>画出最终图形</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">fig=plt.figure(figsize=(11,7),dpi=100)</span><br><span class="line">ax=fig.gca(projection=&apos;3d&apos;)</span><br><span class="line">X,Y=np.meshgrid(x,y)</span><br><span class="line">ax.plot_surface(X,Y,u,cmap=cm.viridis,rstride=1,cstride=1)</span><br><span class="line">ax.plot_surface(X,Y,v,cmap=cm.viridis,rstride=1,cstride=1)</span><br><span class="line">ax.set_xlabel=(&apos;$x$&apos;)</span><br><span class="line">ax.set_ylabel=(&apos;$y$&apos;);</span><br></pre></td></tr></table></figure>
+<p><img src="http://cfd.red/?/%E5%8D%9A%E5%AE%A2%E5%9B%BE%E7%89%87/%E6%9C%80%E7%BB%88%E5%9B%BE%E5%BD%A2.svg" alt="最终图形"></p>
+<h4 id="此次迭代运行时间为-0-01237304888854851秒"><a href="#此次迭代运行时间为-0-01237304888854851秒" class="headerlink" title="此次迭代运行时间为 0.01237304888854851秒"></a>此次迭代运行时间为 0.01237304888854851秒</h4>
+      
 
-        <div class="article-info info-on-right">
-          
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -218,7 +251,7 @@
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -231,164 +264,104 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/11/20/二维博格斯方程/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/11/05/二维对流方程/" class="archive-article-date">
-  	<time datetime="2018-11-05T07:16:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-05</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/11/05/二维对流方程/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">二维对流方程</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/05/二维对流方程/">二维对流方程</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/CFD//" class="article-tag-list-link color4">CFD</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/11/03/一维非线性对流方程/" class="archive-article-date">
-  	<time datetime="2018-11-03T07:40:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/03/一维非线性对流方程/">一维非线性对流方程</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/CFD//" class="article-tag-list-link color4">CFD</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/11/01/龙格库塔法/" class="archive-article-date">
-  	<time datetime="2018-11-01T05:05:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/01/龙格库塔法/">常微分方程的数值解法（龙格库塔法）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/数值计算//" class="article-tag-list-link color5">数值计算</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -411,8 +384,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
